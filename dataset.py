@@ -54,9 +54,9 @@ class dataSet():
 
 
 if __name__ == '__main__':
-    my_data_set = dataSet("data/Water_Spring_Lupa.csv")
+    file_name = "data/Lake_Bilancino.csv"
+    my_data_set = dataSet(file_name)
     print(my_data_set.file_name)
     print(my_data_set.df)
     print(my_data_set.header)
-    #my_data_set.plot_data_set()
     my_data_set.plot_interpolated()
