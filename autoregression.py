@@ -29,6 +29,4 @@ def test_arima_model(series, p, d, q):
     plt.show()
     residuals.plot(kind='kde')
     plt.show()
-    #pyplot.show()
-    ## summary stats of residuals
     print(residuals.describe())
