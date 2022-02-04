@@ -351,3 +351,4 @@ MigrationBackup/
 
 # PERSONAL excludes
 venv/
+.vscode/
