@@ -6,17 +6,19 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 
-class parser():
+class dataSet():
     """
-    Arguments:
-        file_name: The name of the file to be parsed.
+    Class reading the data set from a given .csv file.
     """
 
     def __init__(self, file_name):
         """
-        Initializes the parser.
+        Initializes the data set.
         Writes the data from file_name to a pandas dataframe.
         Extracts the header from the dataframe and it writes it to a list.
+
+        Arguments:
+            file_name: The name of the file to be parsed.
         """
         self.file_name = file_name
         self.df = pd.read_csv(file_name)
@@ -39,8 +41,8 @@ class parser():
 
 
 if __name__ == '__main__':
-    my_parser = parser("data/Water_Spring_Lupa.csv")
-    print(my_parser.file_name)
-    print(my_parser.df)
-    print(my_parser.header)
-    my_parser.plot_data_set()
+    my_data_set = data_set("data/Water_Spring_Lupa.csv")
+    print(my_data_set.file_name)
+    print(my_data_set.df)
+    print(my_data_set.header)
+    my_data_set.plot_data_set()
