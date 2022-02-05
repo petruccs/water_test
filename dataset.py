@@ -52,11 +52,25 @@ class dataSet():
             fig.autofmt_xdate()
         plt.show()
 
+    def generate_test_train_df(self, train_frac=0.8):
+        """
+        Splits the dataframe into a train and test dataframe.
+        The test dataframe is of size test_size * len(df).
+        Arguments:
+            train_frac: The fraction of the train dataframe.
+        """
+        train_size = int(len(self.df) * train_frac)
+        self.train_df = self.df[:train_size]
+        self.test_df = self.df[train_size:]
+
 
 if __name__ == '__main__':
     file_name = "data/Lake_Bilancino.csv"
     my_data_set = dataSet(file_name)
-    print(my_data_set.file_name)
-    print(my_data_set.df)
-    print(my_data_set.header)
+    #print(my_data_set.file_name)
+    #print(my_data_set.df)
+    #print(my_data_set.header)
     my_data_set.plot_interpolated()
+    #my_data_set.generate_test_train_df(0.8)
+    #print(my_data_set.train_df)
+    #print(my_data_set.test_df)
