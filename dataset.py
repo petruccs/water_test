@@ -71,8 +71,4 @@ class dataSet:
 if __name__ == '__main__':
     file_name = "data/Lake_Bilancino_cropped.csv"
     my_data_set = dataSet(file_name)
-    #my_data_set.plot_data_set()
-    #my_data_set.plot_interpolated()
-    #my_data_set.generate_test_train_df(0.8)
-    #print(my_data_set.train_df)
-    #print(my_data_set.test_df)
+    my_data_set.plot_data_set()

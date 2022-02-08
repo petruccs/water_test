@@ -12,10 +12,6 @@ def plot_auto_corr(df, column, interpolate, save_fig):
         column: The column to be plotted.
         interpolate: If True, the NaN values are interpolated using the linear method.
     """
-    print(
-        f"[INFO] plotting the autocorrelation of {column}; interpolate = {interpolate}"
-    )
-
     plt.figure()
     if interpolate:
         pd.plotting.autocorrelation_plot(df[column].interpolate())
