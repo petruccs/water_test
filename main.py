@@ -13,8 +13,8 @@ Tasks:
 
 # General configurations
 save_figs = True
-lag_lake = 10  # Optimal is 115
-lag_flow = 10  # Optimal is 65
+lag_lake = 10  # Optimal is 115, too demanding for my system
+lag_flow = 10  # Optimal is 65, too demanding for my system
 lake_level_name = "Lake_Level"
 flow_rate_name = "Flow_Rate"
 
@@ -59,8 +59,8 @@ run_ar_model(my_parser.train_df[lake_level_name],
              my_parser.test_df[lake_level_name], lag_lake, save_figs)
 
 # Functions to the ARIMA performance
-#test_arima_model(my_parser.df[flow_rate_name], lag_flow, 1, 0)
-#test_arima_model(my_parser.df[lake_level_name], lag_lake, 1, 0)
+test_arima_model(my_parser.df[flow_rate_name], lag_flow, 1, 0)
+test_arima_model(my_parser.df[lake_level_name], lag_lake, 1, 0)
 
 # Computing the ARIMA prediction for both target variables
 run_arima_prediction(my_parser.train_df[flow_rate_name], lag_flow, 1, 0,
