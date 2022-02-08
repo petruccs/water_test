@@ -1,9 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
+from datetime import datetime
 
 
-class dataSet():
+class dataSet:
     """
     Importing the data set from a .csv file.
     """
@@ -18,6 +19,10 @@ class dataSet():
             file_name: The name of the file to be parsed.
         """
         self.file_name = file_name
+        #self.df = pd.read_csv(file_name,
+        #                      parse_dates=[0],
+        #                      infer_datetime_format=True)
+
         self.df = pd.read_csv(file_name)
         self.header = self.df.columns.values
 
@@ -28,7 +33,6 @@ class dataSet():
         for i in range(len(self.header) - 1):
             fig = plt.figure(i)
             ax = plt.subplot(1, 1, 1)
-            #ax.xaxis.set_major_locator(ticker.MaxNLocator(20))
             ax.xaxis.set_major_locator(ticker.AutoLocator())
             ax.xaxis.set_minor_locator(ticker.AutoMinorLocator())
             plt.plot(self.df[self.header[0]], self.df[self.header[i + 1]])
@@ -65,12 +69,10 @@ class dataSet():
 
 
 if __name__ == '__main__':
-    file_name = "data/Lake_Bilancino.csv"
+    file_name = "data/Lake_Bilancino_cropped.csv"
     my_data_set = dataSet(file_name)
-    #print(my_data_set.file_name)
-    #print(my_data_set.df)
-    #print(my_data_set.header)
-    my_data_set.plot_interpolated()
+    #my_data_set.plot_data_set()
+    #my_data_set.plot_interpolated()
     #my_data_set.generate_test_train_df(0.8)
     #print(my_data_set.train_df)
     #print(my_data_set.test_df)

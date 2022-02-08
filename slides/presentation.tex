@@ -80,7 +80,7 @@
 
 \begin{frame}{Data set}
   \begin{columns}
-    \begin{column}{0.4\columnwidth}
+    \begin{column}{0.6\columnwidth}
       \begin{itemize}
         \item Chosen \textit{Lake\_Bilancino}
         \item Two target variables:
@@ -88,12 +88,15 @@
             \item Lake level
             \item Flow rate
           \end{itemize}
+        \item Most variables missing before 01/01/2004\\
+        $\Rightarrow$ removed since $\sim 9\%$ of the total
+        \item Missing data not replaced\footnote{Applied an interpolation only when computing the autocorrelation.}
       \end{itemize}
+      \vspace{7em}
     \end{column}
-    \begin{column}{0.6\columnwidth}
+    \begin{column}{0.4\columnwidth}
       \begin{center}
-        \includegraphics[width=0.45\columnwidth]{../plots/corr_vars.pdf}\\
-        \vspace{0.5em}
+        \includegraphics[width=0.8\columnwidth]{../plots/corr_vars.pdf}\\
         \tiny{Covariance matrix}
       \end{center}
     \end{column}
@@ -104,20 +107,64 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Forecasting strategy}
- 
+  \begin{columns}
+    \begin{column}{0.6\columnwidth}
+      \begin{enumerate}
+          \item Simple AutoRegressive (AR) model
+          \item More complex AutoRegressive Integrated Moving Average (ARIMA) model
+          \item Multivariate analysis (not implemented)
+      \end{enumerate}
+    \end{column}
+    \begin{column}{0.4\columnwidth}
+      \begin{center}
+        \includegraphics[width=0.65\columnwidth]{../plots/flow_rate_autocorr.pdf}\\
+        \tiny{Flow rate - autocorrelation}\\
+        \vspace{1em}
+        \includegraphics[width=0.65\columnwidth]{../plots/lake_level_autocorr.pdf}\\
+        \tiny{Lake level - autocorrelation}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Results}
-
+\begin{frame}{Predictions - 13 samples}
+  \begin{columns}
+    \begin{column}{0.5\columnwidth}
+      \begin{center}
+        \vspace{-1em}
+        AutoRegressive model\\
+        \vspace{0.5em}
+        \includegraphics[width=0.5\columnwidth]{../plots/ar_lake_level_prediction.pdf}\\
+        \tiny{Lake level}\\
+        \vspace{0.5em}
+        \includegraphics[width=0.5\columnwidth]{../plots/ar_flow_rate_prediction.pdf}\\
+        \tiny{Flow rate}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\columnwidth}
+      \begin{center}
+        \vspace{-1em}
+        ARIMA model\\
+        \vspace{0.5em}
+        \includegraphics[width=0.5\columnwidth]{../plots/arima_lake_level_prediction.pdf}\\
+        \tiny{Lake level}\\
+        \vspace{0.5em}
+        \includegraphics[width=0.5\columnwidth]{../plots/arima_flow_rate_prediction.pdf}\\
+        \tiny{Flow rate}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Conclusionsz}
- 
+\begin{frame}{Conclusions}
+  \begin{itemize}
+    \item 
+  \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
