@@ -352,3 +352,10 @@ MigrationBackup/
 # PERSONAL excludes
 venv/
 .vscode/
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.gz
+*.toc
