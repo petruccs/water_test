@@ -56,9 +56,9 @@ def test_arima_model(series, p, d, q):
     Tests the ARIMA model with the given parameters.
     Parameters:
         series: The series to be tested.
-        p: Lag
-        d: 
-        q: 
+        p: number of time lags
+        d: degree of differencing
+        q: order of the moving average model
     """
     model = ARIMA(series, order=(p, d, q))
     model_fit = model.fit()
@@ -76,9 +76,9 @@ def run_arima_prediction(train_data, p, d, q, test_data, save_fig):
     Runs the ARIMA model with the given parameters.
     Parameters:
         series: The series to be tested.
-        p: Lag
-        d: 
-        q: 
+        p: number of time lags
+        d: degree of differencing
+        q: order of the moving average model
     """
     model = ARIMA(train_data, order=(p, d, q))
     model_fit = model.fit()
