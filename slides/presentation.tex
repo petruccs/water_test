@@ -30,8 +30,8 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usetikzlibrary{arrows,shapes}
-\tikzstyle{every picture}+=[remember picture]
+%\usetikzlibrary{arrows,shapes}
+%\tikzstyle{every picture}+=[remember picture]
 \setbeamertemplate{navigation symbols}{}
 % \setbeamertemplate{footline}[frame number]
 %\logo{\includegraphics[width= 0.15\linewidth]{full_logo.pdf}\vspace{-9pt}}
@@ -71,12 +71,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\begin{frame}
-%  \tableofcontents
-%\end{frame}
+\begin{frame}
+  \tableofcontents
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Software}
+
+\begin{frame}{Software}
+  \begin{itemize}
+    \item Written in Python and available on \href{https://github.com/petruccs/water_test}{\underline{GitHub}}
+    \item Used standard libraries:
+    \begin{itemize}
+      \item Pandas
+      \item Seaborn
+      \item Statsmodels
+    \end{itemize}
+    \item One class for the data set (with methods for plotting and split data into train/test)
+    \item Some functions for the statistical models
+    \item Everything is documented within the code (it should be Doxigen friendly as well)
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data set}
 
 \begin{frame}{Data set}
   \begin{columns}
@@ -89,15 +109,15 @@
             \item Flow rate
           \end{itemize}
         \item Most variables missing before 01/01/2004\\
-        $\Rightarrow$ removed since $\sim 8\%$ of the total
+        $\Rightarrow$ removed ($\sim 8\%$ of the total)
         \item Missing data not replaced\footnote{Applied an interpolation only when computing the autocorrelation.}
       \end{itemize}
       \vspace{7em}
     \end{column}
     \begin{column}{0.4\columnwidth}
       \begin{center}
-        \includegraphics[width=0.8\columnwidth]{../plots/corr_vars.pdf}\\
-        \tiny{Covariance matrix}
+        \includegraphics[width=\columnwidth]{../plots/corr_matrix_new-crop.pdf}\\
+        \tiny{Correlation matrix}
       \end{center}
     \end{column}
   \end{columns}
@@ -105,6 +125,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Strategy}
 
 \begin{frame}{Forecasting strategy}
   \begin{columns}
@@ -114,6 +135,9 @@
           \item More complex AutoRegressive Integrated Moving Average (ARIMA) model
           \item Multivariate analysis (not implemented)
       \end{enumerate}
+      \vspace{2em}
+      Both models used in this project require to setup the lag.\\
+      $\Rightarrow$ chosen from autocorrelation plots.
     \end{column}
     \begin{column}{0.4\columnwidth}
       \begin{center}
@@ -129,6 +153,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
 
 \begin{frame}{Predictions - 13 samples}
   \begin{columns}
@@ -160,12 +185,24 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions}
 
 \begin{frame}{Conclusions}
   \begin{itemize}
     \item Implemented a toy script to compute AR and ARIMA algorithms
-    \item Both algorithms showed better performance on \texttt{Lake\_level} 
+    \item Both algorithms showed better performance on \texttt{Lake\_level}
+    \item The behavior of \texttt{Flow\_rate} requires additional investigation\\
+          Optimizing ARIMA's parameters might improve performance
   \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]
+  \begin{center}
+    \huge{\textcolor{MyBlue}{Thank you for your attention}}
+  \end{center}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

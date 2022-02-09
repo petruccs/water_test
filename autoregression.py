@@ -44,6 +44,8 @@ def run_ar_model(train_data, test_data, lag, save_fig):
                                0: f"predicted - lag {lag}"
                            })
     compare_df.plot()
+    plt.title(f"AR - {train_data.name}")
+    plt.xlabel("Days")
     if save_fig:
         plt.savefig(f"plots/ar_{train_data.name.lower()}_prediction.pdf")
     else:
@@ -90,6 +92,8 @@ def run_arima_prediction(train_data, p, d, q, test_data, save_fig):
             predictions.name: f"predicted - lag {p}"
         })
     compare_df.plot()
+    plt.title(f"ARIMA - {train_data.name}")
+    plt.xlabel("Days")
     if save_fig:
         plt.savefig(f"plots/arima_{train_data.name.lower()}_prediction.pdf")
     else:
